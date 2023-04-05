@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/HomeFragment"
+        android:icon="@drawable/round_home"
+        android:title="home" />
+    <item
+        android:id="@+id/StatsFragment"
+        android:icon="@drawable/round_stats"
+        android:title="stats" />
+    <item
+        android:id="@+id/LogsFragment"
+        android:icon="@drawable/round_logs"
+        android:title="logs" />
+    <item
+        android:id="@+id/MoreFragment"
+        android:icon="@drawable/round_more"
+        android:title="more" />
+</menu>

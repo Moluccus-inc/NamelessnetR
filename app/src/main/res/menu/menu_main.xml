@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="namelessnet.app.ui.MainActivity">
+
+    <item
+        android:id="@+id/import_conf_locally"
+        android:icon="@drawable/round_import_local"
+        android:title="Import Locally"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/import_url_clipboard"
+        android:icon="@drawable/round_content_copy"
+        android:title="Import Url"
+        app:showAsAction="always" />
+    <item android:title="Create configuration">
+        <menu>
+            <item
+                android:id="@+id/create_v2ray_conf"
+                android:title="Create V2ray conf" />
+            <item
+                android:id="@+id/create_psiphon_cong"
+                android:title="Create Psiphon conf" />
+            <item
+                android:id="@+id/create_ssh_cong"
+                android:title="Create ssh conf" />
+            <item
+                android:id="@+id/create_socks_cong"
+                android:title="Create sock|sock5 conf" />
+            <item
+                android:id="@+id/create_ssl_cong"
+                android:title="Create ssl conf" />
+        </menu>
+    </item>
+    <item android:title="Ping All Conf" />
+    <item android:title="Clear All Out Dated" />
+</menu>
