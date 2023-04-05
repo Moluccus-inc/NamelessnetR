@@ -22,14 +22,8 @@
                 android:id="@+id/create_psiphon_cong"
                 android:title="Create Psiphon conf" />
             <item
-                android:id="@+id/create_ssh_cong"
-                android:title="Create ssh conf" />
-            <item
-                android:id="@+id/create_socks_cong"
-                android:title="Create sock|sock5 conf" />
-            <item
-                android:id="@+id/create_ssl_cong"
-                android:title="Create ssl conf" />
+                android:id="@+id/create_other_cong"
+                android:title="Create other conf" />
         </menu>
     </item>
     <item android:title="Ping All Conf" />
