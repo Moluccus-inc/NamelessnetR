@@ -17,6 +17,7 @@ import namelessnet.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -29,33 +30,55 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.bottomNavigation
 
-        val navController = findNavController(R.id.nav_host_fragment_container)
+        navController = findNavController(R.id.nav_host_fragment_container)
         val appBarConfiguration = AppBarConfiguration(
             setOf(R.id.HomeFragment, R.id.StatsFragment, R.id.LogsFragment, R.id.MoreFragment)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        initLayout()
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.HomeFragment) {
+                binding.Fab.show()
+            } else {
+                binding.Fab.hide()
+            }
+        }
+    }
+
+    private fun initLayout() {
+        binding.Fab.setOnClickListener {
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
+        // show menu only in HomeFragment
+        when (navController.currentDestination?.id) {
+            R.id.HomeFragment -> {
+                menuInflater.inflate(R.menu.menu_main, menu)
+                return true
+            }
+            R.id.StatsFragment -> {
+                return false
+            }
+            R.id.LogsFragment -> {
+                return false
+            }
+            R.id.MoreFragment -> {
+                return false
+            }
+            else -> {
+                return false
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-           // R.id.action_settings -> true
+            // R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        //ToDo: Start Actives
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        //ToDo: Remove Actives
     }
 }
