@@ -1,23 +1,29 @@
 package namelessnet.app.ui
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import namelessnet.app.R
+import android.net.VpnService
 import namelessnet.app.databinding.ActivityMainBinding
+import namelessnet.app.services.LeafVpnService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private val vpnPermissionRequestCode = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -49,7 +55,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun initLayout() {
         binding.Fab.setOnClickListener {
+            val intent = VpnService.prepare(applicationContext)
+            if (intent != null) {
+                startActivityForResult(intent, 0)
+            } else {
+                startVpnService()
+            }
+        }
+    }
 
+    private fun startVpnService() {
+        val intent = Intent(this, LeafVpnService::class.java)
+        startService(intent)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == vpnPermissionRequestCode) {
+            if (resultCode == RESULT_OK) {
+                startService(Intent(this, LeafVpnService::class.java))
+            } else {
+                Toast.makeText(this, "VPN permission denied", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
