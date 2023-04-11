@@ -21,7 +21,7 @@ class LogsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setHasOptionsMenu(false)
         /**  binding.buttonFirst.setOnClickListener {
         findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         } **/

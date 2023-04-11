@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="protocol" translatable="false">
+        <item>Vmess</item>
+        <item>Shadowsocks</item>
+        <item>Trojan</item>
+        <item>Vless</item>
+        <item>Bless</item>
+        <item>Http</item>
+        <item>Psiphon</item>
+        <item>Socks</item>
+        <item>DnsTT</item>
+        <item>Udp</item>
+        <item>Ssh</item>
+    </string-array>
+
+    <string-array name="ss_securitys" translatable="false">
+        <item>none</item>
+        <item>aes-256-gcm</item>
+        <item>aes-128-gcm</item>
+        <item>chacha20-poly1305</item>
+        <item>chacha20-ietf-poly1305</item>
+        <item>xchacha20-poly1305</item>
+        <item>xchacha20-ietf-poly1305</item>
+        <item>plain</item>
+        <item>2022-blake3-aes-128-gcm</item>
+        <item>2022-blake3-aes-256-gcm</item>
+        <item>2022-blake3-chacha20-poly1305</item>
+    </string-array>
+
+    <string-array name="networks" translatable="false">
+        <item>tcp</item>
+        <item>kcp</item>
+        <item>ws</item>
+        <item>h2</item>
+        <item>quic</item>
+        <item>grpc</item>
+    </string-array>
+</resources>
