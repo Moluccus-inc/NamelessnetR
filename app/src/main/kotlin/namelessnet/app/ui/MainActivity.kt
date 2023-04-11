@@ -55,18 +55,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initLayout() {
         binding.Fab.setOnClickListener {
-            val intent = VpnService.prepare(applicationContext)
-            if (intent != null) {
-                startActivityForResult(intent, 0)
-            } else {
-                startVpnService()
-            }
+           // start vpn
         }
-    }
-
-    private fun startVpnService() {
-        val intent = Intent(this, LeafVpnService::class.java)
-        startService(intent)
     }
 
     @Deprecated("Deprecated in Java")
