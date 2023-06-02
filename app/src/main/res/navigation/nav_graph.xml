@@ -3,30 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomeFragment">
+    app:startDestination="@id/FirstFragment">
 
     <fragment
-        android:id="@+id/HomeFragment"
-        android:name="namelessnet.app.fragments.HomeFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/FirstFragment"
+        android:name="moluccus.com.namelessnet.app.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
 
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/StatsFragment"
-        android:name="namelessnet.app.fragments.StatsFragment"
-        android:label="Stats"
-        tools:layout="@layout/fragment_stats" />
+        android:id="@+id/SecondFragment"
+        android:name="moluccus.com.namelessnet.app.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
 
-    <fragment
-        android:id="@+id/LogsFragment"
-        android:name="namelessnet.app.fragments.LogsFragment"
-        android:label="Logs"
-        tools:layout="@layout/fragment_logs" />
-
-    <fragment
-        android:id="@+id/MoreFragment"
-        android:name="namelessnet.app.fragments.MoreFragment"
-        android:label="More"
-        tools:layout="@layout/fragment_more" />
-
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
