@@ -1,2 +1,2 @@
 # NamelessnetR
-Namelessnet combination of v2ray , phisphon and other protocols
+Namelessnet combination of v2ray other protocols
